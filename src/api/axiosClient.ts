@@ -1,22 +1,33 @@
-import axios from 'axios';
+import axios from "axios";
 
 const axiosClient = axios.create({
-  baseURL: 'https://k305jhbh09.execute-api.ap-southeast-1.amazonaws.com',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  timeout: 10000,
+    baseURL: "https://k305jhbh09.execute-api.ap-southeast-1.amazonaws.com",
+    headers: {
+        "Content-Type": "application/json",
+    },
+    timeout: 10000,
 });
 
 axiosClient.interceptors.request.use((config) => {
-  const token = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJrMTgtc3RvcmUiLCJzdWIiOiIyNCIsImV4cCI6MTc3NjQxMzMyNSwidHlwZSI6ImFjY2VzcyIsImlhdCI6MTc3NjQxMjcyNSwiZW1haWwiOiJkb3h1YW50aGFuaEB0ZXN0LmNvbSJ9.ZlhPnlEI9XvVw8Hk82lMN25VLSJWx0NyemffNYNHeHo";
-//   const token = localStorage.getItem('access_token');
+    const token = localStorage.getItem("access_token");
 
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+    }
 
-  return config;
+    return config;
 });
+
+axiosClient.interceptors.response.use(
+    (response) => response.data,
+    (error) => {
+        if (error.response?.status === 401) {
+            localStorage.removeItem("access_token");
+            window.location.href = "/";
+        }
+
+        return Promise.reject(error);
+    }
+);
 
 export default axiosClient;

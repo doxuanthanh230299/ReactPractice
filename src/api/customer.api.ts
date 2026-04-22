@@ -2,7 +2,7 @@ import axiosClient from './axiosClient';
 import type { CustomerI } from '../types';
 
 export const customerApi = {
-  getList(): Promise<{ data: CustomerI[] }> {
+  getList(): Promise<CustomerI[]> {
     return axiosClient.get('/customers');
   },
 
