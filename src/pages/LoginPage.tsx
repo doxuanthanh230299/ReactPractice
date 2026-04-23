@@ -34,7 +34,7 @@ const LoginPage: React.FC = () => {
             toast.success("Đăng nhập thành công 🎉");
 
             // chuyển trang
-            navigate("/customers");
+            navigate("/products");
         } catch (err: any) {
             toast.error(err?.response?.data?.message || "Sai email hoặc mật khẩu");
         } finally {
@@ -42,9 +42,7 @@ const LoginPage: React.FC = () => {
         }
     };
 
-    useEffect(() => {
-        
-    }, [])
+    useEffect(() => {}, []);
 
     return (
         <Box
@@ -57,11 +55,11 @@ const LoginPage: React.FC = () => {
             }}
         >
             <Paper elevation={10} sx={{ width: 380, p: 4, borderRadius: 3 }}>
-                <Typography variant="h4" fontWeight="bold" mb={1}>
+                <Typography sx={{ fontWeight: "bold", mb: 1 }} variant="h4">
                     Sign in
                 </Typography>
 
-                <Typography variant="body2" color="text.secondary" mb={3}>
+                <Typography sx={{ mb: 3 }} variant="body2" color="text.secondary">
                     Đăng nhập hệ thống
                 </Typography>
 

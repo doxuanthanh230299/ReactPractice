@@ -56,7 +56,7 @@ function CustomerPage() {
 
     return (
         <div>
-            <Button variant="contained" onClick={handleOpen}>
+            <Button variant="contained" onClick={handleOpen} sx={{ mb: 2 }}>
                 Tạo khách hàng
             </Button>
 

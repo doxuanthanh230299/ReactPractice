@@ -6,7 +6,7 @@ import TextField from "@mui/material/TextField";
 import Select, { type SelectChangeEvent } from "@mui/material/Select";
 import Stack from "@mui/material/Stack";
 import MenuItem from "@mui/material/MenuItem";
-import type { CustomerI, Rank } from "../types";
+import type { CustomerI } from "../types";
 import { FormControl, InputLabel, Typography } from "@mui/material";
 import { customerApi } from "../api/customer.api";
 import { toast } from "react-toastify";

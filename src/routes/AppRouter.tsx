@@ -4,12 +4,12 @@ import LoginPage from "../pages/LoginPage";
 import ProtectedRoute from "./ProtectedRoute";
 import PublicRoute from "./PublicRoute";
 import AdminLayout from "../layouts/AdminLayout";
+import ProductPage from "../pages/ProductPage";
 
 const AppRouter = () => {
     return (
         <BrowserRouter>
             <Routes>
-                {/* login */}
                 <Route
                     path="/login"
                     element={
@@ -18,7 +18,6 @@ const AppRouter = () => {
                         </PublicRoute>
                     }
                 />
-
                 <Route
                     element={
                         <ProtectedRoute>
@@ -27,6 +26,15 @@ const AppRouter = () => {
                     }
                 >
                     <Route path="/customers" element={<CustomerPage />} />
+                </Route>
+                <Route
+                    element={
+                        <ProtectedRoute>
+                            <AdminLayout />
+                        </ProtectedRoute>
+                    }
+                >
+                    <Route path="/products" element={<ProductPage />} />
                 </Route>
             </Routes>
         </BrowserRouter>
