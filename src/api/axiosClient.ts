@@ -21,9 +21,9 @@ axiosClient.interceptors.request.use((config) => {
 axiosClient.interceptors.response.use(
     (response) => response.data,
     (error) => {
-        if (error.response?.status === 401) {
+        if (error.response?.status === 400) {
             localStorage.removeItem("access_token");
-            window.location.href = "/";
+            window.location.href = "/login";
         }
 
         return Promise.reject(error);

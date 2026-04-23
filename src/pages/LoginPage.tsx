@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Button, TextField, Typography, Paper, InputAdornment, IconButton } from "@mui/material";
 import { Visibility, VisibilityOff, Email, Lock } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
@@ -41,6 +41,10 @@ const LoginPage: React.FC = () => {
             setLoading(false);
         }
     };
+
+    useEffect(() => {
+        
+    }, [])
 
     return (
         <Box

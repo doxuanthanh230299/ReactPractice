@@ -15,3 +15,7 @@ export const authApi = {
         return axiosClient.post("/auth/signin", data);
     },
 };
+
+export const isAuthenticated = () => {
+    return !!localStorage.getItem("access_token");
+};
